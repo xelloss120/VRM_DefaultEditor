@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using SFB;
@@ -26,6 +27,17 @@ public class Export : MonoBehaviour
 
         if (path == "") return;
 
+        // 書き出しエラー対策（非表示にしたメッシュがあると書き出しエラー）
+        var list = new List<VRMFirstPerson.RendererFirstPersonFlags>();
+        foreach (var item in Model.GetComponent<VRMFirstPerson>().Renderers)
+        {
+            list.Add(item);
+        }
+        foreach (var item in list)
+        {
+            Model.GetComponent<VRMFirstPerson>().Renderers.Remove(item);
+        }
+
         var meta = Model.GetComponent<VRMMeta>();
         meta.Meta.Thumbnail = ToTexture2D(Thumbnail.texture);
         meta.Meta.Title = Title.text;
@@ -38,6 +50,8 @@ public class Export : MonoBehaviour
         var vrm = VRMExporter.Export(new GltfExportSettings(), normalized, new RuntimeTextureSerializer());
         var bytes = vrm.ToGlbBytes();
         File.WriteAllBytes(path, bytes);
+
+        Destroy(normalized);
     }
 
     /// <summary>

@@ -155,12 +155,23 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2321495997559212982}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2064413610}
+        m_MethodName: ChangedSlider
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2321495996712420488
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,6 +260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2321495997305572927}
   - component: {fileID: 2321495997305572924}
+  - component: {fileID: 2064413610}
   m_Layer: 5
   m_Name: BlendShapeCtrl
   m_TagString: Untagged
@@ -303,6 +315,23 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &2064413610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2321495997305572926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370ebe89313164b40b83a4eb5f2450e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Slider: {fileID: 2321495996559101708}
+  InputField: {fileID: 2321495997732208554}
+  Text: {fileID: 2321495997729337055}
+  Mesh: {fileID: 0}
+  Index: 0
 --- !u!1 &2321495997487438412
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,20 +755,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2321495997732208555}
   m_TextComponent: {fileID: 2321495996712420534}
   m_Placeholder: {fileID: 2321495997487438410}
-  m_ContentType: 2
+  m_ContentType: 3
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 4
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 1
+  m_CharacterValidation: 2
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2064413610}
+        m_MethodName: ChangedInputField
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}

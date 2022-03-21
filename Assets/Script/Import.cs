@@ -41,6 +41,7 @@ public class Import : MonoBehaviour
                 Contact.text = meta.Meta.ContactInformation;
                 Reference.text = meta.Meta.Reference;
 
+                // 書き出し時に重力設定で変形する対策
                 var sb = instance.Root.GetComponentsInChildren<VRMSpringBone>();
                 for (int i = 0; i < sb.Length; i++)
                 {
